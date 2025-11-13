@@ -1,0 +1,32 @@
+{
+  "name": "user-management-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1",
+    "autoprefixer": "10.4.14",
+    "postcss": "8.4.21",
+    "tailwindcss": "3.4.7"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i src/index.css -o src/tailwind-output.css --minify",
+    "start": "npm run build:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

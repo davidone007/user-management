@@ -1,0 +1,29 @@
+package com.example.usermanagement.util;
+
+import com.example.usermanagement.security.Pbkdf2Password;
+
+/**
+ * Utility for local development: generate salt, hash and print SQL to set admin password.
+ * Usage (from project root):
+ *  ./mvnw -DskipTests package
+ *  java -cp backend/target/classes com.example.usermanagement.util.DevPasswordUtil "NewPass123!"
+ */
+public class DevPasswordUtil {
+    public static void main(String[] args) {
+        String pwd = null;
+        if (args != null && args.length > 0) pwd = args[0];
+        if (pwd == null || pwd.isEmpty()) {
+            System.err.println("Usage: java com.example.usermanagement.util.DevPasswordUtil <password>");
+            System.exit(2);
+        }
+
+        String salt = Pbkdf2Password.generateSalt();
+        String hash = Pbkdf2Password.hash(pwd.toCharArray(), salt);
+
+        System.out.println("-- Ejecuta la siguiente sentencia SQL en la consola H2 (o mediante JDBC) para fijar la contraseña del usuario 'admin':");
+        System.out.println();
+        System.out.println("UPDATE users SET salt='" + salt + "', password_hash='" + hash + "' WHERE username='admin';");
+        System.out.println();
+        System.out.println("-- Luego accede al frontend y prueba iniciar sesión con el usuario 'admin' y la contraseña proporcionada.");
+    }
+}
