@@ -1,5 +1,22 @@
 package com.example.usermanagement.dto;
 
+/**
+ * Data Transfer Object for authentication responses.
+ * 
+ * This DTO is returned after successful login or token refresh operations.
+ * It contains:
+ * 
+ *   {@code token} - The JWT access token (short-lived, typically 5 minutes)
+ *   {@code forcePasswordReset} - Flag indicating if the user must change their password
+ *   {@code tempPassword} - Temporary password (only set when admin resets a user's password)
+ * 
+ * 
+ * The access token should be included in the Authorization header for subsequent API requests:
+ * <pre>Authorization: Bearer &lt;token&gt;</pre>
+ * 
+ * @author User Management System
+ * @version 1.0
+ */
 public class AuthResponse {
     private String token;
     private boolean forcePasswordReset;

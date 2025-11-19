@@ -1,3 +1,21 @@
+/**
+ * Notification component for displaying messages to users.
+ * 
+ * This component displays styled notification messages with different
+ * color schemes based on the notification type.
+ * 
+ * Available types:
+ * 
+ *   info - Blue styling for informational messages
+ *   success - Green styling for success messages
+ *   error - Red styling for error messages
+ * 
+ * 
+ * @param {React.ReactNode} children - The message content to display
+ * @param {string} type - The notification type: "info", "success", or "error" (default: "info")
+ * @module Notification
+ * @component
+ */
 import React from "react";
 
 export default function Notification({ children, type = "info" }) {

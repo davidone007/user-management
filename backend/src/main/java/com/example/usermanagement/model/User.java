@@ -11,6 +11,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Entity class representing a user in the system.
+ * 
+ * This class maps to the "users" table in the database and contains:
+ * 
+ *   User identification (id, username)
+ *   Password security data (passwordHash, salt) - stored separately for PBKDF2 hashing
+ *   Role-based access control (ADMIN or USER)
+ *   Login tracking (lastLogin timestamp)
+ *   Password reset enforcement flag (forcePasswordReset)
+ * 
+ * 
+ * The password is never stored in plain text. Instead, it's hashed using PBKDF2
+ * with a unique salt per user, stored in the {@code passwordHash} and {@code salt} fields.
+ * 
+ * @author User Management System
+ * @version 1.0
+ */
 @Entity
 @Table(name = "users")
 public class User {
@@ -37,6 +55,13 @@ public class User {
     @Column(name = "force_password_reset")
     private boolean forcePasswordReset = false;
 
+    /**
+     * Enumeration of user roles in the system.
+     * 
+     *   {@code ADMIN} - Full access to all endpoints including user management and audit logs
+     *   {@code USER} - Standard user with access to personal account management
+     * 
+     */
     public enum Role {ADMIN, USER}
 
     // getters and setters

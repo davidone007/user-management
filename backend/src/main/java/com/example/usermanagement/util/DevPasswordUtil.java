@@ -9,6 +9,24 @@ import com.example.usermanagement.security.Pbkdf2Password;
  *  java -cp backend/target/classes com.example.usermanagement.util.DevPasswordUtil "NewPass123!"
  */
 public class DevPasswordUtil {
+    /**
+     * Main method for command-line execution.
+     * 
+     * This utility generates a salt and password hash for a given password
+     * and outputs an SQL UPDATE statement that can be executed in the H2 console
+     * to set the admin user's password.
+     * 
+     * Usage:
+     * <pre>
+     * java -cp target/classes com.example.usermanagement.util.DevPasswordUtil "NewPass123!"
+     * </pre>
+     * 
+     * The output is an SQL statement that updates the admin user's salt and
+     * password_hash in the users table.
+     * 
+     * @param args Command-line arguments. The first argument should be the password to hash.
+     *             If no argument is provided, prints usage information and exits.
+     */
     public static void main(String[] args) {
         String pwd = null;
         if (args != null && args.length > 0) pwd = args[0];

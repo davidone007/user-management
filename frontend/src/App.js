@@ -1,3 +1,24 @@
+/**
+ * Main application component that manages authentication state and routing.
+ * 
+ * This component:
+ * 
+ *   Manages the authentication token and user role state
+ *   Handles the forcePasswordReset flag from login responses
+ *   Renders different views based on authentication status and role
+ *   Provides login/logout callbacks to child components
+ * 
+ * 
+ * View routing:
+ * 
+ *   Not authenticated: Shows Login and Register forms side by side
+ *   Authenticated as ADMIN: Shows AdminPanel
+ *   Authenticated as USER: Shows UserPanel
+ * 
+ * 
+ * @module App
+ * @component
+ */
 import React, { useState } from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";

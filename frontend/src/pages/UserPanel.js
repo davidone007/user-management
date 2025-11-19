@@ -1,3 +1,29 @@
+/**
+ * User panel component for standard user account management.
+ * 
+ * This component provides functionality for regular users:
+ * 
+ *   View last login timestamp
+ *   Change password
+ *   Logout
+ * 
+ * 
+ * Password reset enforcement:
+ * 
+ *   If requirePasswordChange is true, the last login display is hidden
+ *   User must change password before accessing other features
+ *   After successful password change, onPasswordChanged callback is called
+ * 
+ * 
+ * All API requests include the JWT token in the Authorization header.
+ * 
+ * @param {string} token - JWT access token for authenticated requests
+ * @param {Function} onLogout - Callback function called when user logs out
+ * @param {boolean} requirePasswordChange - Whether the user must change their password
+ * @param {Function} onPasswordChanged - Callback function called after successful password change
+ * @module UserPanel
+ * @component
+ */
 import React, { useEffect, useState } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";

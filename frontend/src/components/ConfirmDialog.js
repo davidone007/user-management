@@ -1,3 +1,27 @@
+/**
+ * Modal confirmation dialog component.
+ * 
+ * This component displays a modal dialog for confirming destructive actions
+ * (e.g., deleting a user). It includes a backdrop overlay and a centered dialog box.
+ * 
+ * Features:
+ * 
+ *   Conditional rendering based on open prop
+ *   Backdrop click to cancel
+ *   Title and message display
+ *   Cancel and confirm buttons
+ * 
+ * 
+ * Usage: Typically used before performing irreversible operations like deletion.
+ * 
+ * @param {boolean} open - Whether the dialog should be visible
+ * @param {string} title - The dialog title text
+ * @param {string} message - The confirmation message to display
+ * @param {Function} onConfirm - Callback function called when user confirms
+ * @param {Function} onCancel - Callback function called when user cancels or clicks backdrop
+ * @module ConfirmDialog
+ * @component
+ */
 import React from "react";
 
 export default function ConfirmDialog({

@@ -18,10 +18,34 @@ public class SecurityConfig {
      */
     private final JwtAuthenticationFilter jwtFilter;
 
+    /**
+     * Constructs a new SecurityConfig.
+     * 
+     * @param jwtFilter The JWT authentication filter to use for request filtering
+     */
     public SecurityConfig(JwtAuthenticationFilter jwtFilter) {
         this.jwtFilter = jwtFilter;
     }
 
+    /**
+     * Configures the Spring Security filter chain.
+     * 
+     * This method sets up:
+     * 
+     *   CSRF protection disabled (stateless API)
+     *   Stateless session management (no server-side sessions)
+     *   Public endpoints: /api/auth/**, /v3/api-docs/**, /swagger-ui/**, /h2-console/**
+     *   All other endpoints require authentication
+     *   JWT authentication filter added before UsernamePasswordAuthenticationFilter
+     *   H2 console frame options set to sameOrigin (development only)
+     * 
+     * 
+     * Note: The H2 console should be disabled in production environments.
+     * 
+     * @param http The HttpSecurity object to configure
+     * @return The configured SecurityFilterChain
+     * @throws Exception If configuration fails
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http

@@ -1,3 +1,24 @@
+/**
+ * Registration page component for new user sign-up.
+ * 
+ * This component provides a form for new users to register in the system.
+ * Upon successful registration, it displays a success message. The user
+ * must then log in separately to obtain a JWT token.
+ * 
+ * Features:
+ * 
+ *   Username and password input fields
+ *   Form validation (required fields)
+ *   Loading state during registration
+ *   Success/error message display
+ * 
+ * 
+ * Note: New users are created with the USER role by default. The username
+ * must be unique in the system.
+ * 
+ * @module Register
+ * @component
+ */
 import React, { useState } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";

@@ -1,3 +1,30 @@
+/**
+ * Admin panel component for administrative user management.
+ * 
+ * This component provides administrative functionality:
+ * 
+ *   List all users in the system
+ *   Delete users
+ *   Reset user passwords (generates temporary password)
+ *   View login audit logs for users
+ *   Real-time updates via Server-Sent Events (SSE)
+ * 
+ * 
+ * Real-time updates:
+ * 
+ *   Establishes an SSE connection to /api/admin/events
+ *   Listens for "users-changed" events
+ *   Automatically refreshes the user list when changes occur
+ * 
+ * 
+ * All API requests include the JWT token in the Authorization header.
+ * This component requires ADMIN role authorization.
+ * 
+ * @param {string} token - JWT access token for authenticated requests
+ * @param {Function} onLogout - Callback function called when admin logs out
+ * @module AdminPanel
+ * @component
+ */
 import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Notification from "../components/Notification";

@@ -1,3 +1,24 @@
+/**
+ * Main layout component that wraps all page content.
+ * 
+ * This component provides the overall page structure:
+ * 
+ *   Header with application title and branding
+ *   Main content area with max-width constraint
+ *   Footer with project information
+ * 
+ * 
+ * Styling:
+ * 
+ *   Gradient background from slate-50 to white
+ *   Sticky header with backdrop blur effect
+ *   Responsive max-width container (4xl)
+ * 
+ * 
+ * @param {React.ReactNode} children - The page content to render inside the layout
+ * @module Layout
+ * @component
+ */
 import React from "react";
 
 export default function Layout({ children }) {

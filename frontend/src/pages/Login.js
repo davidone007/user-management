@@ -1,3 +1,27 @@
+/**
+ * Login page component for user authentication.
+ * 
+ * This component provides a form for users to log in to the system.
+ * Upon successful login, it extracts the JWT token, user role, and forcePasswordReset
+ * flag from the response and calls the onLogin callback.
+ * 
+ * Features:
+ * 
+ *   Username and password input fields
+ *   Form validation (required fields)
+ *   Loading state during authentication
+ *   Error message display
+ *   JWT token parsing to extract role
+ * 
+ * 
+ * The JWT token is decoded client-side to extract the role claim, which is
+ * then passed to the parent component for routing decisions.
+ * 
+ * @param {Function} onLogin - Callback function called on successful login.
+ *                            Receives (token, role, forcePasswordReset) as parameters.
+ * @module Login
+ * @component
+ */
 import React, { useState } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
